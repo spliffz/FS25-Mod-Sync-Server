@@ -100,3 +100,15 @@ body.modal-open, .modal-open .modal {
 .redBorder {
   border: 1px red solid;
 }
+
+.index_infoText {
+  margin: 0 auto;
+  width: 70%;
+  background-color: #2f6af42e;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+
+
