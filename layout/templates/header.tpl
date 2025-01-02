@@ -1,4 +1,4 @@
-<html>
+<html data-bs-theme="dark">
     <head>
         <title>{$siteTitle}</title>
         <meta charset="utf-8">
@@ -68,5 +68,5 @@
     <!-- Background image by kjpargeter on Freepik -->
     <body class="cover img-fluid">
         <div class="container-fluid p-5 text-center" style="font-family: 'weblysleek'; color: #376d7f;">
-            <h1>FS25 Sync Storage Server Installation</h1>
+            <h1>{$headerText}</h1>
         </div>

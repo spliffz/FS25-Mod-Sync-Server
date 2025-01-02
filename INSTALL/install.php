@@ -69,6 +69,7 @@ if(isset($_POST['r'])) {
     $smarty->assign('sql_user', $sql['user']);
     $smarty->assign('sql_pass', $sql['pass']);
     $smarty->assign('sql_db', $sql['dbase']);
+    $smarty->assign('headerText', 'FS25 Sync Storage Server Installation');
     $smarty->display('install.tpl');
 }
 

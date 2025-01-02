@@ -18,7 +18,8 @@ body.modal-open, .modal-open .modal {
 
 
 .cover {
-  background-image: url('../images/bg_01.png');
+  background-image: url('../images/optical-fiber-with-blue-light.jpg');
+  background-size: cover;
   height: 100%;
 }
 

@@ -1,11 +1,11 @@
-# FS25 Sync Storage Server - readme.md
-###### v1.1.1
+# FS25 Mod Sync Server - readme.md
+###### v1.1.2
 
-**Farming Simulator 25 Sync Storage Server**
+**Farming Simulator 25 Mod Sync Server**
 
 A Web Application for use in combination with the FS25-Sync-Tool.
 
-![FS25 Mod Sync Tool by Spliffz](http://fs25.rotjong.xyz/FS25-mss-01.png)   
+![FS25 Mod Sync Tool by Spliffz](http://fs25.rotjong.xyz/FS25-mss-02.png)   
 
 ### [Features]
  - ## **Also for use with Farming Simulator 22 (FS22)!**
@@ -59,3 +59,7 @@ Every deleted mod will not be deleted on the client/user. This is by design so i
  * php
  * smarty.net template parser
  * jquery & bootstrap
+
+### [Changelog]
+#### [v.1.1.2]
+ - added index page (index.tpl/index.php)
