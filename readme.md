@@ -8,20 +8,21 @@ A Web Application for use in combination with the FS25-Sync-Tool.
 ![FS25 Mod Sync Tool by Spliffz](http://fs25.rotjong.xyz/FS25-mss-01.png)   
 
 ### [Features]
+ - ## **Also for use with Farming Simulator 22 (FS22)!**
  - Easy, lightweight Admin Interface
  - Drag and Drop mod uploads
  - My everlasting gratitude for using my software!
 
 ### [How It Works]
-This is the backend for [FS25 Sync Tool](https://github.com/spliffz/FS25-Sync-Tool/).
+This is the backend for [FS25 Sync Tool](https://github.com/spliffz/FS25-Sync-Tool).
 This will allow you to upload, manage and synchronize your Farming Simulator mods amongst your friends or users.   
 If the client finds new or updated mods it downloads them from the server synchronizing both mod folders.
 Every added mod will be indexed and ready for sync.
 Every deleted mod will not be deleted on the client/user. This is by design so it won't corrupt any savegames.
 
 ### [Requirements]
-  - If you already run a dedicated/vps for FS25 dedicated server you can run this next to it.
-  - If you run a hosted FS25 server solution you need to run this on a seperate server.
+  - If you already run a dedicated/vps for FS25/22 dedicated server you can run this next to it.
+  - If you run a hosted FS25/22 server solution you need to run this on a seperate server.
   - A webserver with PHP 8.2 and MySQL on a VPS, dedicated server or Docker instance.
   I recommend docker. I've included a simple docker setup, located in `/INSTALL/DOCKER`. Edit as needed.
   - Enough space to host all the mods you want.
