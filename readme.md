@@ -40,6 +40,12 @@ Every deleted mod will not be deleted on the client/user. This is by design so i
  `/layout/cache`   
  `/layout/templates_c`   
  `/temp`   
+```
+root@f9891079ea0b:/var/www/html# chown -R www-data:www-data mods/
+root@f9891079ea0b:/var/www/html# chmod -R 775 mods/
+```
+ [Thanks dsmitty166](https://github.com/spliffz/FS25-Mod-Sync-Server/issues/1#issuecomment-2568100652)
+
  * Open `YOURWEBSERVERDOMAIN.COM/acp` in your browser and follow the installation steps. Check and edit the info where needed. Click `Install` when ready.   
  * After Installing open `YOURWEBSERVERDOMAIN.COM/acp` in your browser and log in with `admin // changeme`. If you put it in a subfolder then just include it like so `YOURWEBSERVERDOMAIN.COM/fs25Mods/acp` or `fs25mods.YOURWEBSERVERDOMAIN.COM`
     - ### **Don't forget to update the password once you're done!**
