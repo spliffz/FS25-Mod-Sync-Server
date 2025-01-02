@@ -1,0 +1,9 @@
+#RewriteEngine On
+#RewriteBase /
+# Options +FollowSymlinks
+
+#RewriteCond %{HTTPS_HOST} ^fs25.rotjong.xyz/l$ [NC]
+# RewriteCond %{REQUEST_FILENAME} !-f 
+# RewriteCond %{REQUEST_FILENAME} !-d 
+
+#RewriteRule ^(ajax/getModList)/?$ ajax.php?$1

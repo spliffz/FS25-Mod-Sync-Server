@@ -1,0 +1,101 @@
+/* Main CSS Styles File */
+
+
+.smallerFont {
+    font-size: 0.8rem;
+}
+
+.ul-overflow-scroll {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 300px;
+}
+
+
+body.modal-open, .modal-open .modal {
+  overflow: hidden;
+}
+
+
+.cover {
+  background-image: url('../images/bg_01.png');
+  height: 100%;
+}
+
+@font-face {
+  font-family: 'weblysleek';
+  src: 
+    local("weblysleek"),
+/*     url('weblysleekuisli.ttf') format("truetype"),
+ */    url('weblysleekuil.ttf') format("truetype"),
+    url('weblysleekuili.ttf') format("truetype"),
+    url('weblysleekuisb.ttf') format("truetype"),
+    url('weblysleekuisbi.ttf') format("truetype"),
+    url('weblysleekuisl.ttf') format("truetype")
+}
+
+
+.table {
+  font-size: 0.8rem;
+  width: 100%;
+}
+.table_dashboard {
+  width: 100%;
+}
+
+#upload_indexer {
+  display: none;
+}
+
+#info_popupWrapper, .info_popup {
+  display: none;
+}
+
+.infoText_small {
+  font-size: 0.6rem;
+  font-style: italic;
+}
+
+.indexer_updateInfo {
+  margin-right: 10px;
+  display: inline-block;
+  background-color: #536575;
+  padding: 6px;
+  width: 300px;
+  text-align: right;
+  border-radius: 5px;
+  top: 3px;
+  position: relative;
+  color: white;
+}
+#indexer_updateInfo {
+  display: none;
+}
+
+.indexer_updateBtn {
+  display: inline;
+}
+
+#part2_link {
+  display: none;
+}
+
+.installPartsWrapper {
+  background-color: white;
+  border-radius: 5px;
+  border: 0px solid;
+  min-height: 100px;
+}
+
+#part2_log_ul li {
+  list-style: disclosure-closed;
+}
+
+#install_part2 {
+  padding: 10px;
+  display: none;
+}
+
+.redBorder {
+  border: 1px red solid;
+}

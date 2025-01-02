@@ -1,0 +1,37 @@
+services:
+  php-apache-environment:
+    container_name: fs25-php-apache
+    build:
+      context: .
+      dockerfile: ../fs25_storage_server/Dockerfile
+    restart: always
+    volumes:
+      - ${PATH_TO_APPDATA}/fs25_storage_server/data:/var/www/html
+    ports:
+      - '8001:80'
+  db:
+    container_name: fs25_db
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: MYSQL_ROOT_PASSWORD
+      MYSQL_DATABASE: MY_DATABASE
+      MYSQL_USER: MYSQL_USER
+      MYSQL_PASS: MYSQL_PASS
+    ports:
+      - '9908:3306'
+    volumes:
+      - ${PATH_TO_APPDATA}/fs25_mysql_data_volume:/var/lib/mysql
+  phpmyadmin:
+    container_name: fs25_phpmyadmin
+    image: phpmyadmin
+    ports:
+      - '8082:80'
+    restart: always
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db
+volumes:
+  fs25_mysql_data_volume:
+    external: true
