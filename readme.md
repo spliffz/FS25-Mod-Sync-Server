@@ -14,11 +14,11 @@ A Web Application for use in combination with the FS25-Sync-Tool.
  - My everlasting gratitude for using my software!
 
 ### [How It Works]
-This is the backend for [FS25 Sync Tool](https://github.com/spliffz/FS25-Sync-Tool).
-This will allow you to upload, manage and synchronize your Farming Simulator mods amongst your friends or users.   
-If the FS25-Sync-Tool finds new or updated mods it downloads them from the server synchronizing both mod folders.
-Every added mod will be indexed and ready for sync.
-Every deleted mod will not be deleted on the client/user. This is by design so it won't corrupt any savegames.
+This is the backend for [FS25 Sync Tool](https://github.com/spliffz/FS25-Sync-Tool).   
+This will allow you to upload, manage and synchronize your Farming Simulator mods amongst your friends or users.     
+If the FS25-Sync-Tool finds new or updated mods it downloads them from the server synchronizing both mod folders.   
+Every added mod will be indexed and ready for sync.   
+Every deleted mod will not be deleted on the client/user. This is by design so it won't corrupt any savegames.   
 
 ### [Requirements]
   - If you already run a dedicated/vps for FS25/22 dedicated server you can run this next to it.
