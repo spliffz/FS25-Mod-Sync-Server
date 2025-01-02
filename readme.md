@@ -42,7 +42,8 @@ Every deleted mod will not be deleted on the client/user. This is by design so i
  `/temp`   
  * Open `YOURWEBSERVERDOMAIN.COM/acp` in your browser and follow the installation steps. Check and edit the info where needed. Click `Install` when ready.   
  * After Installing open `YOURWEBSERVERDOMAIN.COM/acp` in your browser and log in with `admin // changeme`. If you put it in a subfolder then just include it like so `YOURWEBSERVERDOMAIN.COM/fs25Mods/acp` or `fs25mods.YOURWEBSERVERDOMAIN.COM`
-    - > **Don't forget to update the password once you're done!**
+    - ### **Don't forget to update the password once you're done!**
+
  * Set up a cronjob for automated indexing:   
  `*/5 * * * * php -f PATH_TO_YOUR_MODSERVER_WEBFOLDER/check.php`   \
  where PATH_TO_YOUR_MODSERVER is something like `/var/www/html` or `/public_html`. 
