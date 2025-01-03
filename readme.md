@@ -60,17 +60,17 @@ root@f9891079ea0b:/var/www/html# chmod -R 775 mods/
  * `mkdir -p /opt/FS25-Mod-Sync-Server/layout/templates_c`
       
  *  Give write permissions to the following folders:
-```
-* docker exec -it fs25-php-apache chown -R www-data:www-data mods
-* docker exec -it fs25-php-apache chown -R www-data:www-data layout/cache
-* docker exec -it fs25-php-apache chown -R www-data:www-data layout/templates_c  
-* docker exec -it fs25-php-apache chown -R www-data:www-data temp
 
-* docker exec -it fs25-php-apache chmod -R 775 mods
-* docker exec -it fs25-php-apache chmod -R 775 layout/cache
-* docker exec -it fs25-php-apache chmod -R 775 layout/templates_c
-* docker exec -it fs25-php-apache chmod -R 775 temp
-```
+* `docker exec -it fs25-php-apache chown -R www-data:www-data mods`
+* `docker exec -it fs25-php-apache chown -R www-data:www-data layout/cache`
+* `docker exec -it fs25-php-apache chown -R www-data:www-data layout/templates_c`
+* `docker exec -it fs25-php-apache chown -R www-data:www-data temp`
+
+* `docker exec -it fs25-php-apache chmod -R 775 mods`
+* `docker exec -it fs25-php-apache chmod -R 775 layout/cache`
+* `docker exec -it fs25-php-apache chmod -R 775 layout/templates_c`
+* `docker exec -it fs25-php-apache chmod -R 775 temp`
+
 Stop and Start Docker
 * `docker compose -f fs25-sync-storage-server.yaml down`
 * `docker compose -f fs25-sync-storage-server.yaml up -d`
