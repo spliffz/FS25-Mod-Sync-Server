@@ -80,10 +80,17 @@ Stop and Start Docker
     - ### **Don't forget to update the password once you're done!**
 
  * Set up a cronjob for automated indexing:   
- `*/5 * * * * php -f PATH_TO_YOUR_MODSERVER_WEBFOLDER/check.php`   \
- where PATH_TO_YOUR_MODSERVER is something like `/var/www/html` or `/public_html`. 
+ `*/5 * * * * docker exec -it fs25-php-apache php -f /var/www/html/check.php`   \
+ where PATH_TO_YOUR_MODSERVER is something like `/var/www/html` or `/public_html`.
+
  * If you want to upload large files then make sure these php.ini variables are configured properly:   
  `upload_max_filesize`, `post_max_size`
+* Edit docker compose uncomment mountpoint for custom-uploads.ini `/usr/local/etc/php/conf.d/custom-uploads.ini`
+* Create `custom-uploads.ini`
+* `nano /opt/FS25-Mod-Sync-Server/custom-uploads.ini`
+* upload_max_filesize = 2048
+* post_max_size = 2048
+* max_file_uploads = 50
 
 
 ### [Endpoints]
