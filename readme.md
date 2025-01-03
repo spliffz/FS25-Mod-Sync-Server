@@ -47,51 +47,55 @@ root@f9891079ea0b:/var/www/html# chmod -R 775 mods/
  [Thanks dsmitty166](https://github.com/spliffz/FS25-Mod-Sync-Server/issues/1#issuecomment-2568100652)
 
 ### [Docker Installation (Based on a Linux Webserver)]
-* Clone the repo `git clone https://github.com/spliffz/FS25-Mod-Sync-Server.git`
-* Navigate to the Docker Compose Files `cd FS25-Mod-Sync-Server/INSTALL/DOCKER`
-* Edit Docker Compose `nano fs25-sync-storage-server.yaml` as necessary for your setup. Pay attention to the volume mounts.
- * Edit `core/includes/config.inc.php`. This is your SQL Config.
- * Edit `core/includes/defines.inc.php`. This is the rest config.
- * Edit `core/js/main.js`, change the `baseUrlDomain` value. This should reflect your domainname/ip.
- * Start docker containers `docker compose -f fs25-sync-storage-server.yaml up -d`
+### Docker Installation (Based on a Linux Webserver)
 
- * Create Folders
- * `mkdir -p /opt/FS25-Mod-Sync-Server/layout/cache`
- * `mkdir -p /opt/FS25-Mod-Sync-Server/layout/templates_c`
-      
- *  Give write permissions to the following folders:
+1. Clone the repository: `git clone https://github.com/spliffz/FS25-Mod-Sync-Server.git`
+2. Navigate to the Docker Compose files: `cd FS25-Mod-Sync-Server/INSTALL/DOCKER`
+3. Edit configuration files as needed:
+   - Edit Docker Compose: `nano fs25-sync-storage-server.yaml` (Pay attention to the volume mounts)
+   - SQL configuration: `nano core/includes/config.inc.php`
+   - General configuration: `nano core/includes/defines.inc.php`
+   - Update the `baseUrlDomain` in `core/js/main.js` to match your domain or IP.
+4. Start the Docker containers: `docker compose -f fs25-sync-storage-server.yaml up -d`
+5. Create required folders: `mkdir -p /opt/FS25-Mod-Sync-Server/layout/cache /opt/FS25-Mod-Sync-Server/layout/templates_c`
+6. Set write permissions:
+```
+docker exec -it fs25-php-apache chown -R www-data:www-data mods
+docker exec -it fs25-php-apache chown -R www-data:www-data layout/cache
+docker exec -it fs25-php-apache chown -R www-data:www-data layout/templates_c
+docker exec -it fs25-php-apache chown -R www-data:www-data temp
+docker exec -it fs25-php-apache chmod -R 775 mods
+docker exec -it fs25-php-apache chmod -R 775 layout/cache
+docker exec -it fs25-php-apache chmod -R 775 layout/templates_c
+docker exec -it fs25-php-apache chmod -R 775 temp
+```
 
-* `docker exec -it fs25-php-apache chown -R www-data:www-data mods`
-* `docker exec -it fs25-php-apache chown -R www-data:www-data layout/cache`
-* `docker exec -it fs25-php-apache chown -R www-data:www-data layout/templates_c`
-* `docker exec -it fs25-php-apache chown -R www-data:www-data temp`
-
-* `docker exec -it fs25-php-apache chmod -R 775 mods`
-* `docker exec -it fs25-php-apache chmod -R 775 layout/cache`
-* `docker exec -it fs25-php-apache chmod -R 775 layout/templates_c`
-* `docker exec -it fs25-php-apache chmod -R 775 temp`
-
-Stop and Start Docker
-* `docker compose -f fs25-sync-storage-server.yaml down`
-* `docker compose -f fs25-sync-storage-server.yaml up -d`
-
- * Open `YOURWEBSERVERDOMAIN.COM/acp` in your browser and follow the installation steps. Check and edit the info where needed. Click `Install` when ready.   
+7. Stop and Start Docker
+```
+docker compose -f fs25-sync-storage-server.yaml down && docker compose -f fs25-sync-storage-server.yaml up -d
+```
+8. Open `YOURWEBSERVERDOMAIN.COM/acp` in your browser and follow the installation steps. Check and edit the info where needed. Click `Install` when ready.   
  * After Installing open `YOURWEBSERVERDOMAIN.COM/acp` in your browser and log in with `admin // changeme`. If you put it in a subfolder then just include it like so `YOURWEBSERVERDOMAIN.COM/fs25Mods/acp` or `fs25mods.YOURWEBSERVERDOMAIN.COM`
     - ### **Don't forget to update the password once you're done!**
 
- * Set up a cronjob for automated indexing:   
- `*/5 * * * * docker exec -it fs25-php-apache php -f /var/www/html/check.php`   \
+ 9. Set up a cronjob for automated indexing:   
+```
+*/5 * * * * docker exec -it fs25-php-apache php -f /var/www/html/check.php
+```
  where PATH_TO_YOUR_MODSERVER is something like `/var/www/html` or `/public_html`.
 
- * If you want to upload large files then make sure these php.ini variables are configured properly:   
- `upload_max_filesize`, `post_max_size`
-* Edit docker compose uncomment mountpoint for custom-uploads.ini `/usr/local/etc/php/conf.d/custom-uploads.ini`
-* Create `custom-uploads.ini`
-* `nano /opt/FS25-Mod-Sync-Server/custom-uploads.ini`
-* upload_max_filesize = 2048
-* post_max_size = 2048
-* max_file_uploads = 50
-
+10. If you want to upload large files then make sure these php.ini variables are configured properly:   
+`upload_max_filesize`, `post_max_size`
+   - Edit docker compose uncomment mountpoint for custom-uploads.ini `/usr/local/etc/php/conf.d/custom-uploads.ini`
+   - Create `custom-uploads.ini`
+```
+nano /opt/FS25-Mod-Sync-Server/custom-uploads.ini```
+```
+```
+upload_max_filesize = 2048
+post_max_size = 2048
+max_file_uploads = 50
+```
 
 ### [Endpoints]
  * `/ajax.php?getModList` - Return: Array
