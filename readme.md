@@ -44,9 +44,8 @@ Every deleted mod will not be deleted on the client/user. This is by design so i
 root@f9891079ea0b:/var/www/html# chown -R www-data:www-data mods/
 root@f9891079ea0b:/var/www/html# chmod -R 775 mods/
 ```
- [Thanks dsmitty166](https://github.com/spliffz/FS25-Mod-Sync-Server/issues/1#issuecomment-2568100652)
+[Thanks dsmitty166](https://github.com/spliffz/FS25-Mod-Sync-Server/issues/1#issuecomment-2568100652)
 
-### [Docker Installation (Based on a Linux Webserver)]
 ### Docker Installation (Based on a Linux Webserver)
 
 1. Clone the repository: `git clone https://github.com/spliffz/FS25-Mod-Sync-Server.git`
@@ -96,6 +95,14 @@ upload_max_filesize = 2048
 post_max_size = 2048
 max_file_uploads = 50
 ```
+**It might be that php.ini doesn't exist yet on a default installation.**   
+**If it doesn't exist you need to:**   
+```
+cd /usr/local/etc/php
+cp php.ini-production php.ini
+nano php.ini
+```
+
 
 ### [Endpoints]
  * `/ajax.php?getModList` - Return: Array
