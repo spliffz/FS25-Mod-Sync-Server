@@ -7,8 +7,6 @@ services:
     restart: always
     volumes:
       - /opt/FS25-Mod-Sync-Server:/var/www/html
-### Enable for custom-upload values that persist on rebuild
-#      - /opt/FS25-Mod-Sync-Server/custom-uploads.ini:/usr/local/etc/php/conf.d/custom-uploads.ini
       - /opt/FS25-Mod-Sync-Server/php.ini:/usr/local/etc/php/php.ini
     ports:
       - '8001:80'
