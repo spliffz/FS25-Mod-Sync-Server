@@ -7,14 +7,34 @@ class misc
         echo $msg.'<br />';
     }
 
+    function getFTPInfo() {
+        global $dbconn, $smarty;
+        $q = "SELECT `ftp_host`, `ftp_port`, `ftp_user`, `ftp_pass`, `ftp_path` FROM `settings` WHERE `settings` = 'settings'";
+        $r = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));
+
+        if(mysqli_num_rows($r) > 0) {
+            $row = mysqli_fetch_assoc($r);
+            
+            $tmp[0] = array('ftp_host' => $row['ftp_host'],
+                            'ftp_port' => $row['ftp_port'],
+                            'ftp_user' => $row['ftp_user'],
+                            'ftp_pass' => $row['ftp_pass'],
+                            'ftp_path' => $row['ftp_path']
+                            );
+            $smarty->assign('ftpInfo', $tmp);
+        } else {
+            // nothing
+        }
+    }
+
     function url_origin( $s, $use_forwarded_host = false ) {
-        $ssl      = ( ! empty( $s['HTTPS'] ) && $s['HTTPS'] == 'on' );
-        $sp       = strtolower( $s['SERVER_PROTOCOL'] );
+        $ssl = ( ! empty( $s['HTTPS'] ) && $s['HTTPS'] == 'on' );
+        $sp = strtolower( $s['SERVER_PROTOCOL'] );
         $protocol = substr( $sp, 0, strpos( $sp, '/' ) ) . ( ( $ssl ) ? 's' : '' );
-        $port     = $s['SERVER_PORT'];
-        $port     = ( ( ! $ssl && $port=='80' ) || ( $ssl && $port=='443' ) ) ? '' : ':'.$port;
-        $host     = ( $use_forwarded_host && isset( $s['HTTP_X_FORWARDED_HOST'] ) ) ? $s['HTTP_X_FORWARDED_HOST'] : ( isset( $s['HTTP_HOST'] ) ? $s['HTTP_HOST'] : null );
-        $host     = isset( $host ) ? $host : $s['SERVER_NAME'] . $port;
+        $port = $s['SERVER_PORT'];
+        $port = ( ( ! $ssl && $port=='80' ) || ( $ssl && $port=='443' ) ) ? '' : ':'.$port;
+        $host = ( $use_forwarded_host && isset( $s['HTTP_X_FORWARDED_HOST'] ) ) ? $s['HTTP_X_FORWARDED_HOST'] : ( isset( $s['HTTP_HOST'] ) ? $s['HTTP_HOST'] : null );
+        $host = isset( $host ) ? $host : $s['SERVER_NAME'] . $port;
         return $protocol . '://' . $host;
     }
 
@@ -81,7 +101,7 @@ class misc
         $r = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));
     }
 
-    function indexMods() {
+    function indexMods($statusMsg = true) {
         global $forbiddenEnd, $forbiddenFiles, $dbconn;
 
         if($this->checkIndexerRunning()) {
@@ -113,7 +133,9 @@ class misc
             $r = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));
         }
         $this->setIndexerRunning(0);
-        echo json_encode(array('status' => 'OK'));
+        if($statusMsg) {
+            echo json_encode(array('status' => 'OK'));
+        }
     }
 
 

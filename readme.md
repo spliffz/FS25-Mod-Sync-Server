@@ -1,5 +1,5 @@
 # FS25 Mod Sync Server - readme.md
-###### v1.1.2
+###### v1.1.3
 
 **Farming Simulator 25 Mod Sync Server**
 
@@ -115,5 +115,10 @@ nano php.ini
  * jquery & bootstrap
 
 ### [Changelog]
-#### [v.1.1.2]
+
+[v1.1.3]
+- New Feature: Import from GPortal. You can now import all your active mods directly from your GPortal server!
+
+
+[v1.1.2]
  - added index page (index.tpl/index.php)
