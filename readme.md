@@ -7,6 +7,10 @@ A Web Application for use in combination with the FS25-Sync-Tool.
 
 ![FS25 Mod Sync Tool by Spliffz](http://fs25.rotjong.xyz/FS25-mss-02.png)   
 
+---
+
+#### Discord: [https://discord.gg/cxs9hcE2X6](https://discord.gg/cxs9hcE2X6)   
+
 ### [Features]
  - ## **Also for use with Farming Simulator 22 (FS22)!**
  - Easy, lightweight Admin Interface
