@@ -7,7 +7,7 @@ if(!isset($_SESSION['id']) || (isset($_SESSION['id']) && $_SESSION['class'] =! '
 if(isset($_GET['p'])) {
     switch($_GET['p']) {
         case "settings":
-
+            $misc->getFTPInfo();
             $smarty->display('acp/settings.tpl');
             break;
             

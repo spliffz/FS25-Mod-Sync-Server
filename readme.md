@@ -1,5 +1,5 @@
 # FS25 Mod Sync Server - readme.md
-###### v1.1.2
+###### v1.1.3
 
 **Farming Simulator 25 Mod Sync Server**
 
@@ -103,6 +103,13 @@ cp php.ini-production php.ini
 nano php.ini
 ```
 
+### [To Update:]
+- Download or clone the repo as usual. If downloaded then unzip the file into your webserver folder where the modserver is located.
+- You might have to update the MySQL/MariaDB Database.
+  Check the changelog of the corresponding version to see what needs to be done. See `changelog.md`.
+   
+Until I fix an auto-update or another update method you'll have to do these manually.
+Sorry bout that.
 
 ### [Endpoints]
  * `/ajax.php?getModList` - Return: Array
@@ -110,10 +117,18 @@ nano php.ini
  * `/check.php` - Runs Indexer. Return: Array
 
 ### [Build with]
- * php
- * smarty.net template parser
- * jquery & bootstrap
+ * PHP
+ * Smarty.net template parser
+ * JQuery & Bootstrap
+
+
 
 ### [Changelog]
-#### [v.1.1.2]
+[v1.1.3]
+- New Feature: Import from GPortal. You can now import all your active mods directly from your GPortal server!
+- Added FS RestAPI CareerSavegame Link form input, so you can just set it in the GUI instead of the php file.
+- Added Standalone GPortal Importer scripts: `importer.php`. Run and set it up like check.php with cronjob.
+
+
+[v1.1.2]
  - added index page (index.tpl/index.php)

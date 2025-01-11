@@ -8,6 +8,11 @@ require __DIR__ . '/acp/header.php';
 
 //---------------------------------------------
 
+if(isset($_GET['phpinfo'])) {
+    phpinfo();
+    exit;
+}
+
 if(isset($_GET['getModList'])) {
 
     $firstRun->firstRunCheck();

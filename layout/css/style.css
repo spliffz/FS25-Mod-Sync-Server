@@ -110,5 +110,31 @@ body.modal-open, .modal-open .modal {
 }
 
 
+.logBoxWrapper {
+  width: 100%;
+}
+.logBox {
+  height: 220px;
+  width: 100%;
+  padding: 10px;
+  resize: none;
+  padding-top: 4px;
+  font-size: 0.8rem;
+  font-family: consolas;
+
+}
+
+#info_popup_SpinnerWrapper_FTP, #info_popup_OK_FTP, #info_popup_INFO_OK_FTP {
+  display: none;
+}
+
+
+.icon {
+  width: 18px;
+  height: 18px;
+  float: right;
+  /* bottom: 9px; */
+  position: relative;
+}
 
 

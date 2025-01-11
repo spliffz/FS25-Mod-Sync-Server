@@ -7,14 +7,121 @@ class misc
         echo $msg.'<br />';
     }
 
+    function arrayify($xml) {
+        $json = json_encode($xml);
+        $array = json_decode($json,TRUE);
+        return $array;
+    }
+    
+    
+    function importModsFromGPortal($importer=false) {
+        global $dbconn, $misc;
+        $q = "SELECT `ftp_host`, `ftp_port`, `ftp_user`, `ftp_pass`, `ftp_path`, `fs_restapi_careerSavegame` FROM `settings` WHERE `settings` = 'settings'";
+        $r = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));
+    
+        $row = mysqli_fetch_assoc($r);
+    
+        $activeModsUrl = $row['fs_restapi_careerSavegame'];
+        $xml = simplexml_load_file($activeModsUrl);
+        $array = $this->arrayify($xml);
+        $mods = $array['mod'];
+        $activeModListArray = array();
+    
+        foreach($mods as $mod) {
+            $fullname = $mod['@attributes']['modName'].'.zip';
+            if(str_starts_with($fullname, 'pdlc')) {
+                // print_r('found pdlc');
+                continue;
+            } else {
+                // print_r($fullname);
+                $activeModListArray[] = $fullname;
+            }
+        }
+    
+        $ftp_host = $row['ftp_host'];
+        $ftp_port = $row['ftp_port'];
+        $ftp_user = $row['ftp_user'];
+        $ftp_pass = $row['ftp_pass'];
+        $ftp_path = $row['ftp_path'];
+        
+        // putenv('TMPDIR=/tmp/');
+        $ftp = ftp_connect($ftp_host, $ftp_port);
+        $login_result = ftp_login($ftp, $ftp_user, $ftp_pass);
+        ftp_set_option($ftp, FTP_USEPASVADDRESS, false);
+        ftp_pasv($ftp, true);
+        
+        // for some reason I couldn't get these better functions to work and now
+        // I had to do a hacky splitstring solution on rawlist return
+        // not sure why they don't work. leaving them here for future ideas
+        // $contents = ftp_nlist($ftp, '');
+        // $contents = ftp_mlsd($ftp, ".");
+        // $contents = ftp_rawlist($ftp, $ftp_path);
+        ftp_chdir($ftp, $ftp_path);
+        $contents = ftp_rawlist($ftp, '.');
+        
+        foreach($contents as $item) {
+            $spl = explode(' ', $item);
+
+            if($importer) {
+                $fopen = getcwd().'/mods/'.$spl[count($spl)-1];
+            } else {
+                $fopen = SITE_PATH.'/mods/'.$spl[count($spl)-1];
+            }
+            
+            // Download only currently active mods
+            if(in_array($spl[count($spl)-1], $activeModListArray)) {
+    
+                $fp = fopen($fopen, 'w');
+    
+                $ret = ftp_nb_fget($ftp, $fp, $spl[count($spl)-1], FTP_BINARY);
+                while ($ret == FTP_MOREDATA) {
+                    $ret = ftp_nb_continue($ftp);
+                }
+                if ($ret != FTP_FINISHED) {
+                    echo 'Error while downloading file';
+                    exit(1);
+                }    
+            } else {
+                // print_r('Mod not active, skipping.');
+            }
+        }
+        
+        $this->indexMods($statusMsg=false);
+
+        return true;
+    }
+    
+
+
+    function getFTPInfo() {
+        global $dbconn, $smarty;
+        $q = "SELECT `ftp_host`, `ftp_port`, `ftp_user`, `ftp_pass`, `ftp_path`, `fs_restapi_careerSavegame` FROM `settings` WHERE `settings` = 'settings'";
+        $r = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));
+
+        if(mysqli_num_rows($r) > 0) {
+            $row = mysqli_fetch_assoc($r);
+            
+            $tmp[0] = array('ftp_host' => $row['ftp_host'],
+                            'ftp_port' => $row['ftp_port'],
+                            'ftp_user' => $row['ftp_user'],
+                            'ftp_pass' => $row['ftp_pass'],
+                            'ftp_path' => $row['ftp_path'],
+                            'CSLink' => $row['fs_restapi_careerSavegame']
+                            );
+            $smarty->assign('ftpInfo', $tmp);
+        } else {
+            // nothing
+        }
+    }
+
     function url_origin( $s, $use_forwarded_host = false ) {
-        $ssl      = ( ! empty( $s['HTTPS'] ) && $s['HTTPS'] == 'on' );
-        $sp       = strtolower( $s['SERVER_PROTOCOL'] );
+        $ssl = ( ! empty( $s['HTTPS'] ) && $s['HTTPS'] == 'on' );
+        $sp = strtolower( $s['SERVER_PROTOCOL'] );
         $protocol = substr( $sp, 0, strpos( $sp, '/' ) ) . ( ( $ssl ) ? 's' : '' );
-        $port     = $s['SERVER_PORT'];
-        $port     = ( ( ! $ssl && $port=='80' ) || ( $ssl && $port=='443' ) ) ? '' : ':'.$port;
-        $host     = ( $use_forwarded_host && isset( $s['HTTP_X_FORWARDED_HOST'] ) ) ? $s['HTTP_X_FORWARDED_HOST'] : ( isset( $s['HTTP_HOST'] ) ? $s['HTTP_HOST'] : null );
-        $host     = isset( $host ) ? $host : $s['SERVER_NAME'] . $port;
+        $port = $s['SERVER_PORT'];
+        $port = ( ( ! $ssl && $port=='80' ) || ( $ssl && $port=='443' ) ) ? '' : ':'.$port;
+        $host = ( $use_forwarded_host && isset( $s['HTTP_X_FORWARDED_HOST'] ) ) ? $s['HTTP_X_FORWARDED_HOST'] : ( isset( $s['HTTP_HOST'] ) ? $s['HTTP_HOST'] : null );
+        $host = isset( $host ) ? $host : $s['SERVER_NAME'] . $port;
         return $protocol . '://' . $host;
     }
 
@@ -81,7 +188,7 @@ class misc
         $r = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));
     }
 
-    function indexMods() {
+    function indexMods($statusMsg=true, $importer=false) {
         global $forbiddenEnd, $forbiddenFiles, $dbconn;
 
         if($this->checkIndexerRunning()) {
@@ -90,7 +197,11 @@ class misc
 
         $this->setIndexerRunning(1);
         // Don't Touch.
-        $path = '../mods/';
+        if($importer) {
+            $path = getcwd().'/mods/';
+        } else {
+            $path = '../mods/';
+        }
         $files =  array_diff(scandir($path), array('.','..'));
         $files_new = array();
         
@@ -113,7 +224,9 @@ class misc
             $r = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));
         }
         $this->setIndexerRunning(0);
-        echo json_encode(array('status' => 'OK'));
+        if($statusMsg) {
+            echo json_encode(array('status' => 'OK'));
+        }
     }
 
 

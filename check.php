@@ -6,7 +6,6 @@
 # Run it in a cronjob for maximum effort
 # */5 * * * * php check.php
 #
-// include($_SERVER['DOCUMENT_ROOT'].'/acp/header.php');
 require __DIR__ . '/header.php';
 
 // Don't Touch.

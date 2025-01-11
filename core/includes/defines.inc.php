@@ -1,5 +1,5 @@
 <?php
-define("VERSION", 'v1.1.2');
+define("VERSION", 'v1.1.3');
 
 // ### Change these values
 define("SITE_TITLE", 'FS25 Mod Sync Server '.VERSION);
