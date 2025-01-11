@@ -105,27 +105,27 @@
                                     <form id="acp_ftp_form">
                                     <table class="table table-borderless">
                                         <tr>
-                                            <td>FS REST API <br />Career Savegame Link:</td>
-                                            <td><input type="text" id="acp_ftp_careerSavegameLink" name="acp_ftp_careerSavegameLink" class="form-control text-end" value="{$ftpInfo[nr].CSLink}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="You can find these on your dedicated server panel under > settings > miscellaneous > REST API." /></td>
+                                            <td>FS REST API <br />Career Savegame Link: <img src="{$imgUrl}/Question.png" class="icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="You can find this on your Dedicated Server Admin Panel under > Settings > Miscellaneous > REST API."></td>
+                                            <td><input type="text" id="acp_ftp_careerSavegameLink" name="acp_ftp_careerSavegameLink" class="form-control text-end" value="{$ftpInfo[nr].CSLink}" /></td>
                                         </tr>
                                         <tr>
-                                            <td>Hostname/IP:</td>
+                                            <td>Hostname/IP: <img src="{$imgUrl}/Question.png" class="icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="This is your FTP Hostname/IP. You can find this on your GPortal Server"></td>
                                             <td><input type="text" id="acp_ftp_hostname" name="acp_ftp_hostname" class="form-control text-end" value="{$ftpInfo[nr].ftp_host}" /></td>
                                         </tr>
                                         <tr>
-                                            <td>Port:</td>
+                                            <td>Port: <img src="{$imgUrl}/Question.png" class="icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="This is your FTP Port. You can find this on your GPortal Server"></td>
                                             <td><input type="text" id="acp_ftp_port" name="acp_ftp_port" class="form-control text-end" value="{$ftpInfo[nr].ftp_port}" /></td>
                                         </tr>
                                         <tr>
-                                            <td>Username:</td>
+                                            <td>Username: <img src="{$imgUrl}/Question.png" class="icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="This is your FTP Username. You can find this on your GPortal Server"></td>
                                             <td><input type="text" id="acp_ftp_uname" name="acp_ftp_uname" class="form-control text-end" value="{$ftpInfo[nr].ftp_user}" /></td>
                                         </tr>
                                         <tr>
-                                            <td>Password:</td>
+                                            <td>Password: <img src="{$imgUrl}/Question.png" class="icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="This is your FTP Password. You can find this on your GPortal Server"></td>
                                             <td><input type="text" id="acp_ftp_pword" name="acp_ftp_pword" class="form-control text-end" value="{$ftpInfo[nr].ftp_pass}"/></td>
                                         </tr>
                                         <tr>
-                                            <td>Folder: (Optional)</td>
+                                            <td>Folder: (Optional) <img src="{$imgUrl}/Question.png" class="icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="This defaults to /profile/mods. This should be good. leave blank if you don't know."></td>
                                             <td><input type="text" id="acp_ftp_path" name="acp_ftp_path" placeholder="profile/mods" class="form-control text-end" value="{$ftpInfo[nr].ftp_path}"/></td>
                                         </tr>
                                     </table>

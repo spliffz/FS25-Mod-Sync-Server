@@ -118,6 +118,8 @@ nano php.ini
 
 [v1.1.3]
 - New Feature: Import from GPortal. You can now import all your active mods directly from your GPortal server!
+- Added FS RestAPI CareerSavegame Link form input, so you can just set it in the GUI instead of the php file.
+- Added Standalone GPortal Importer scripts: `importer.php`. Run and set it up like check.php with cronjob.
 
 
 [v1.1.2]

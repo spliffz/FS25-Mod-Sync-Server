@@ -16,8 +16,6 @@ var baseUrlDomain = 'https://fs25.rotjong.xyz' // Change this domain. If it's in
 //######################
 var baseUrlPath = '/acp/ajax.php' 
 var baseUrl = baseUrlDomain + baseUrlPath
-
-
 // Main Functions
 function delThisMod(id) {
     $.post(baseUrl, {'request': 'dtm', mid: id}, (data) => {
@@ -97,7 +95,11 @@ function writeLog(msg) {
 
 // Document Ready
 $(document).ready(function() {
+
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     
+        
     $('#acp_indexBtn').on('click', function() {
         refreshModList();
     })

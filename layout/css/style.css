@@ -127,3 +127,14 @@ body.modal-open, .modal-open .modal {
 #info_popup_SpinnerWrapper_FTP, #info_popup_OK_FTP, #info_popup_INFO_OK_FTP {
   display: none;
 }
+
+
+.icon {
+  width: 18px;
+  height: 18px;
+  float: right;
+  /* bottom: 9px; */
+  position: relative;
+}
+
+
