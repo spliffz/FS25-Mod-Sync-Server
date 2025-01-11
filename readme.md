@@ -103,6 +103,15 @@ cp php.ini-production php.ini
 nano php.ini
 ```
 
+### [To Update:]
+- Download or clone the repo as usual. If downloaded then unzip the file into your webserver folder where the modserver is located.
+- You might have to update the MySQL/MariaDB Database.
+  Check the changelog of the corresponding version to see what needs to be done.
+   
+Until I fix an auto-update or another update method you'll have to do these manually.
+Sorry bout that.
+
+
 
 ### [Endpoints]
  * `/ajax.php?getModList` - Return: Array
@@ -114,8 +123,9 @@ nano php.ini
  * Smarty.net template parser
  * JQuery & Bootstrap
 
-### [Changelog]
 
+
+### [Changelog]
 [v1.1.3]
 - New Feature: Import from GPortal. You can now import all your active mods directly from your GPortal server!
 - Added FS RestAPI CareerSavegame Link form input, so you can just set it in the GUI instead of the php file.
