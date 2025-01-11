@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db
--- Generation Time: Jan 01, 2025 at 10:49 PM
+-- Generation Time: Jan 11, 2025 at 07:49 PM
 -- Server version: 9.1.0
 -- PHP Version: 8.2.26
 
@@ -34,6 +34,7 @@ CREATE TABLE `mods` (
   `size` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
 -- --------------------------------------------------------
 
 --
@@ -51,15 +52,21 @@ CREATE TABLE `settings` (
   `sql_user` varchar(255) NOT NULL DEFAULT '',
   `sql_pass` varchar(255) NOT NULL DEFAULT '',
   `sql_db` varchar(255) NOT NULL DEFAULT '',
-  `indexerRunning` int NOT NULL DEFAULT '0'
+  `indexerRunning` int NOT NULL DEFAULT '0',
+  `ftp_host` varchar(255) NOT NULL DEFAULT '',
+  `ftp_port` int NOT NULL DEFAULT '21',
+  `ftp_user` varchar(255) NOT NULL DEFAULT '',
+  `ftp_pass` varchar(255) NOT NULL DEFAULT '',
+  `ftp_path` varchar(255) NOT NULL DEFAULT '/profile/mods',
+  `fs_restapi_careerSavegame` varchar(255) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`settings`, `modFolderPath`, `firstRun`, `installComplete`, `hostname`, `sql_host`, `sql_port`, `sql_user`, `sql_pass`, `sql_db`, `indexerRunning`) VALUES
-('settings', '', 1, 0, '', '', 3306, '', '', '', 0);
+INSERT INTO `settings` (`settings`, `modFolderPath`, `firstRun`, `installComplete`, `hostname`, `sql_host`, `sql_port`, `sql_user`, `sql_pass`, `sql_db`, `indexerRunning`, `ftp_host`, `ftp_port`, `ftp_user`, `ftp_pass`, `ftp_path`, `fs_restapi_careerSavegame`) VALUES
+('settings', '', 0, 1, 'https://fs25.rotjong.xyz', 'db', 3306, 'MYSQL_USER', 'MYSQL_PASS', 'FS25_MODLIST', 0, 'FTP_HOST', 21, 'FTP_USER', 'FTP_PASS', '/profile/mods', '');
 
 -- --------------------------------------------------------
 
@@ -81,7 +88,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `ip`, `sessionid`, `lastLogin`) VALUES
-(1, 'admin', '057ba03d6c44104863dc7361fe4578965d1887360f90a0895882e58a6248fc86', '172.20.0.1', 'bvq7bs824t528oaa1na5ijtnrt', '1735501780');
+(1, 'admin', '1de0acf8745573473269bd97ff1baee2a8daa508e0ff937b29154b708bfb2072', '172.20.0.1', '3c1jm7dpmpv9njki7hu1h6g85i', '1736619923');
 
 --
 -- Indexes for dumped tables
@@ -113,7 +120,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `mods`
 --
 ALTER TABLE `mods`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `users`
