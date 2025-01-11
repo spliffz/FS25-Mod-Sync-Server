@@ -7,8 +7,14 @@ class misc
         echo $msg.'<br />';
     }
 
-
-    function importModsFromGPortal() {
+    function arrayify($xml) {
+        $json = json_encode($xml);
+        $array = json_decode($json,TRUE);
+        return $array;
+    }
+    
+    
+    function importModsFromGPortal($importer=false) {
         global $dbconn, $misc;
         $q = "SELECT `ftp_host`, `ftp_port`, `ftp_user`, `ftp_pass`, `ftp_path`, `fs_restapi_careerSavegame` FROM `settings` WHERE `settings` = 'settings'";
         $r = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));
@@ -17,7 +23,7 @@ class misc
     
         $activeModsUrl = $row['fs_restapi_careerSavegame'];
         $xml = simplexml_load_file($activeModsUrl);
-        $array = arrayify($xml);
+        $array = $this->arrayify($xml);
         $mods = $array['mod'];
         $activeModListArray = array();
     
@@ -55,11 +61,17 @@ class misc
         
         foreach($contents as $item) {
             $spl = explode(' ', $item);
+
+            if($importer) {
+                $fopen = getcwd().'/mods/'.$spl[count($spl)-1];
+            } else {
+                $fopen = SITE_PATH.'/mods/'.$spl[count($spl)-1];
+            }
             
             // Download only currently active mods
             if(in_array($spl[count($spl)-1], $activeModListArray)) {
     
-                $fp = fopen(SITE_PATH.'/mods/'.$spl[count($spl)-1], 'w');
+                $fp = fopen($fopen, 'w');
     
                 $ret = ftp_nb_fget($ftp, $fp, $spl[count($spl)-1], FTP_BINARY);
                 while ($ret == FTP_MOREDATA) {
@@ -176,7 +188,7 @@ class misc
         $r = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));
     }
 
-    function indexMods($statusMsg = true) {
+    function indexMods($statusMsg=true, $importer=false) {
         global $forbiddenEnd, $forbiddenFiles, $dbconn;
 
         if($this->checkIndexerRunning()) {
@@ -185,7 +197,11 @@ class misc
 
         $this->setIndexerRunning(1);
         // Don't Touch.
-        $path = '../mods/';
+        if($importer) {
+            $path = getcwd().'/mods/';
+        } else {
+            $path = '../mods/';
+        }
         $files =  array_diff(scandir($path), array('.','..'));
         $files_new = array();
         

@@ -8,7 +8,7 @@
 #
 require __DIR__ . '/header.php';
 
-if($misc->importModsFromGPortal()) {
+if($misc->importModsFromGPortal(true)) {
     echo "Import completed successfully.";
 }
 

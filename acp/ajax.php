@@ -4,12 +4,6 @@
 include('header.php');
 
 
-function arrayify($xml) {
-    $json = json_encode($xml);
-    $array = json_decode($json,TRUE);
-    return $array;
-}
-
 if (isset($_POST)) {
 
     if(isset($_POST['request'])) {
@@ -130,7 +124,7 @@ if (isset($_POST)) {
                 break;
 
             case "reindex":
-                $misc->indexMods();
+                $misc->indexMods(true, false);
                 
                 break;
 
