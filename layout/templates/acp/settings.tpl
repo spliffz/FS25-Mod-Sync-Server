@@ -105,6 +105,10 @@
                                     <form id="acp_ftp_form">
                                     <table class="table table-borderless">
                                         <tr>
+                                            <td>FS REST API <br />Career Savegame Link:</td>
+                                            <td><input type="text" id="acp_ftp_careerSavegameLink" name="acp_ftp_careerSavegameLink" class="form-control text-end" value="{$ftpInfo[nr].CSLink}" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="You can find these on your dedicated server panel under > settings > miscellaneous > REST API." /></td>
+                                        </tr>
+                                        <tr>
                                             <td>Hostname/IP:</td>
                                             <td><input type="text" id="acp_ftp_hostname" name="acp_ftp_hostname" class="form-control text-end" value="{$ftpInfo[nr].ftp_host}" /></td>
                                         </tr>

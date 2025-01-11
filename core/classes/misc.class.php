@@ -9,7 +9,7 @@ class misc
 
     function getFTPInfo() {
         global $dbconn, $smarty;
-        $q = "SELECT `ftp_host`, `ftp_port`, `ftp_user`, `ftp_pass`, `ftp_path` FROM `settings` WHERE `settings` = 'settings'";
+        $q = "SELECT `ftp_host`, `ftp_port`, `ftp_user`, `ftp_pass`, `ftp_path`, `fs_restapi_careerSavegame` FROM `settings` WHERE `settings` = 'settings'";
         $r = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));
 
         if(mysqli_num_rows($r) > 0) {
@@ -19,7 +19,8 @@ class misc
                             'ftp_port' => $row['ftp_port'],
                             'ftp_user' => $row['ftp_user'],
                             'ftp_pass' => $row['ftp_pass'],
-                            'ftp_path' => $row['ftp_path']
+                            'ftp_path' => $row['ftp_path'],
+                            'CSLink' => $row['fs_restapi_careerSavegame']
                             );
             $smarty->assign('ftpInfo', $tmp);
         } else {

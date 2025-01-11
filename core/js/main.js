@@ -143,10 +143,12 @@ $(document).ready(function() {
         $('#acp_ftp_hostname').removeClass('redBorder');
         $('#acp_ftp_uname').removeClass('redBorder');
         $('#acp_ftp_pword').removeClass('redBorder');
+        $('#acp_ftp_careerSavegameLink').removeClass('redBorder');
 
         let ftp_host = $('#acp_ftp_hostname').val();
         let ftp_user = $('#acp_ftp_uname').val();
         let ftp_pass = $('#acp_ftp_pword').val();
+        let CSLink = $('#acp_ftp_careerSavegameLink').val();
         
         if (ftp_pass == '') {
             $('#acp_ftp_pword').addClass('redBorder');
@@ -158,8 +160,11 @@ $(document).ready(function() {
         if (ftp_host == '') {
             $('#acp_ftp_hostname').addClass('redBorder');
         }
+        if (CSLink == '') {
+            $('#acp_ftp_careerSavegameLink').addClass('redBorder');
+        }
 
-        if(ftp_host == '' || ftp_user == '' || ftp_pass == '') {
+        if(ftp_host == '' || ftp_user == '' || ftp_pass == '' || CSLink == '') {
             return;
         }
 

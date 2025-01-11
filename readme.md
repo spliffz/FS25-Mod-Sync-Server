@@ -110,9 +110,9 @@ nano php.ini
  * `/check.php` - Runs Indexer. Return: Array
 
 ### [Build with]
- * php
- * smarty.net template parser
- * jquery & bootstrap
+ * PHP
+ * Smarty.net template parser
+ * JQuery & Bootstrap
 
 ### [Changelog]
 
