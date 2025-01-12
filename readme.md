@@ -11,6 +11,9 @@ A Web Application for use in combination with the [FS25 Sync Tool](https://githu
 
 #### Discord: [https://discord.gg/cxs9hcE2X6](https://discord.gg/cxs9hcE2X6)   
 
+
+[<img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png">](https://www.buymeacoffee.com/Spliffz)
+
 ### [Features]
  - ## **Also for use with Farming Simulator 22 (FS22)!**
  - Easy, lightweight Admin Interface
