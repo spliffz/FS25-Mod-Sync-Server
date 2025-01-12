@@ -104,6 +104,22 @@ body.modal-open, .modal-open .modal {
   border: 1px red solid;
 }
 
+.logo {
+  width: 130px;
+}
+
+#logoWrapper {
+  padding: 10px;
+}
+
+#logo_text {
+  width: 150px;
+  float: right;
+  margin-top: 14px;
+  font-size: 1.8rem;
+  text-align: right;
+}
+
 .index_infoText {
   margin: 0 auto;
   width: 70%;

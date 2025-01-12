@@ -10,11 +10,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
         <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-        <script src="{$baseUrl}/core/js/main.js"></script>
         <link rel="stylesheet" href="{$baseUrl}/layout/css/style.css" type="text/css" />
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    </head>
+        <script src="{$baseUrl}/core/js/main.js"></script>
+      </head>
 
     <body>
         <div class="container-fluid p-5 bg-secondary text-white text-center">
@@ -23,7 +21,9 @@
 
         <nav class="navbar navbar-expand-md bg-body-tertiary">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Menu</a>
+              <a class="navbar-brand" href="#">
+                <img src="{$imgUrl}/discord_logo.png" style="width: 40px;" />
+              </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
