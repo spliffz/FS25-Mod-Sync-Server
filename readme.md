@@ -3,9 +3,9 @@
 
 **Farming Simulator 25 Mod Sync Server**
 
-A Web Application for use in combination with the FS25-Sync-Tool.
+A Web Application for use in combination with the [FS25 Sync Tool](https://github.com/spliffz/FS25-Sync-Tool).
 
-![FS25 Mod Sync Tool by Spliffz](http://fs25.rotjong.xyz/FS25-mss-02.png)   
+![FS25 Mod Sync Tool by Spliffz](http://fs25.rotjong.xyz/githubpage/FS25-mss-02.png)   
 
 ---
 
@@ -108,6 +108,7 @@ cd /usr/local/etc/php
 cp php.ini-production php.ini
 nano php.ini
 ```
+We've included a basic production ready php.ini with all the right values for handling large files.   
 
 ### [To Update:]
 - Download or clone the repo as usual. If downloaded then unzip the file into your webserver folder where the modserver is located.
