@@ -32,13 +32,17 @@
                             {/if}
                             </p>
                             <hr />
+                            <div class="alert alert-warning text-center" id="">
+                                <strong>You need to have set your FTP Information to use this feature. You can set it under <a href="{$baseUrl}/acp/home.php?p=settings">Settings</a>.</strong>
+                            </div>
+                            <p></p>
                             Upload to GPortal server? 
                             <select id="acp_upload_gportal_enabled">
-                                <option value="1" selected>Yes</option>
-                                <option value="0">No</option>
+                                <option value="1">Yes</option>
+                                <option value="0" selected>No</option>
                             </select>
-                            <br />
-                            <strong>You need to have set your FTP Information to use this feature. You can set it under <a href="{$baseUrl}/acp/home.php?p=settings">Settings</a>.</strong>
+                            
+                            
                         </div>
                         <div id="dropzoneFormWrapper">
                             <form id="dropzoneForm" action="{$baseUrl}/acp/upload.php" method="POST" enctype="multipart/form-data">
