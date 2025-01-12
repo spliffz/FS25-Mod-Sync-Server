@@ -20,7 +20,7 @@
                         <div class="" id="uploadFormDiv">
                             <p>Here you can upload new mods. <br /><br />
                             Files with the same name will be overwritten!<br />
-                            Max files: 10 <br />
+                            Max files: 10. <br />
                             Max Filesize: {$postMaxSize} - 4096MB Hard Limit. <br />
                             <span class="infoText_small">This value is from php.ini. You should increase it if it isn't the same as the Hard Limit</span>
                             {if $postMaxSize < 2048} <br />
