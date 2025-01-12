@@ -86,7 +86,7 @@ class misc
             }
         }
         
-        $this->indexMods($statusMsg=false);
+        $this->indexMods(false, true);
 
         return true;
     }
@@ -192,11 +192,12 @@ class misc
         global $forbiddenEnd, $forbiddenFiles, $dbconn;
 
         if($this->checkIndexerRunning()) {
+            echo "Another instance already running."; 
             exit;
         }
 
         $this->setIndexerRunning(1);
-        // Don't Touch.
+
         if($importer) {
             $path = getcwd().'/mods/';
         } else {
@@ -215,8 +216,13 @@ class misc
             if(str_ends_with($f, $forbiddenEnd)) {
                 continue;
             }
-            $hash = md5_file(getcwd().'/'.$path.$f);
-            $fsize = filesize(getcwd().'/'.$path.$f);
+            if($importer) {
+                $hash = md5_file($path.$f);
+                $fsize = filesize($path.$f);
+            } else {
+                $hash = md5_file(getcwd().'/'.$path.$f);
+                $fsize = filesize(getcwd().'/'.$path.$f);
+            }
             $ta = array($f, $hash, $fsize);
             array_push($files_new, $ta);
             
