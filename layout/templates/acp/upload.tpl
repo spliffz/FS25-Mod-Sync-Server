@@ -20,9 +20,9 @@
                         <div class="" id="uploadFormDiv">
                             <p>Here you can upload new mods. <br /><br />
                             Files with the same name will be overwritten!<br />
-                            Max files: 5 <br />
-                            Max Filesize: {$postMaxSize}<br />
-                            <span class="infoText_small">This value is from php.ini.</span>
+                            Max files: 10 <br />
+                            Max Filesize: {$postMaxSize} - 4096MB Hard Limit. <br />
+                            <span class="infoText_small">This value is from php.ini. You should increase it if it isn't the same as the Hard Limit</span>
                             {if $postMaxSize < 2048} <br />
                                 <div class="alert alert-info">
                                     Your server isn't configured to upload large files.<br />
@@ -31,14 +31,20 @@
                                 </div>
                             {/if}
                             </p>
-                            </div>
+                            <hr />
+                            Upload to GPortal server? 
+                            <select id="acp_upload_gportal_enabled">
+                                <option value="1" selected>Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                            <br />
+                            <strong>You need to have set your FTP Information to use this feature. You can set it under <a href="{$baseUrl}/acp/home.php?p=settings">Settings</a>.</strong>
                         </div>
                         <div id="dropzoneFormWrapper">
                             <form id="dropzoneForm" action="{$baseUrl}/acp/upload.php" method="POST" enctype="multipart/form-data">
                                 <div id="dropzone" class="dropzone"></div>
                                 <p></p>
                                 <button id="submit-dropzone" class="btn btn-info" type="submit" name="submitDropzone">Upload</button>
-                                <!-- <input id="submit-dropzone" class="btn btn-info" type="submit" name="submitDropzone" value="Submit" /> -->
                             </form>
                         </div>
                         <p></p>

@@ -18,7 +18,6 @@ class misc
         global $dbconn, $misc;
         $q = "SELECT `ftp_host`, `ftp_port`, `ftp_user`, `ftp_pass`, `ftp_path`, `fs_restapi_careerSavegame` FROM `settings` WHERE `settings` = 'settings'";
         $r = mysqli_query($dbconn, $q) or die(mysqli_error($dbconn));
-    
         $row = mysqli_fetch_assoc($r);
     
         $activeModsUrl = $row['fs_restapi_careerSavegame'];
@@ -80,7 +79,8 @@ class misc
                 if ($ret != FTP_FINISHED) {
                     echo 'Error while downloading file';
                     exit(1);
-                }    
+                }
+                fclose($fp);
             } else {
                 // print_r('Mod not active, skipping.');
             }

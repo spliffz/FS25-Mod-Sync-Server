@@ -128,6 +128,11 @@ Sorry bout that.
 
 
 ### [Changelog]
+[v1.1.4]
+- New feature: Upload to GPortal on mod upload. When uploading new mods to the server you can now specify if you also want it to upload to your GPortal Server.
+- Increased the max files for uploading to 10.
+- Increased the max file size for uploading file to 4096MB per file.
+
 [v1.1.3]
 - New Feature: Import from GPortal. You can now import all your active mods directly from your GPortal server!
 - Added FS RestAPI CareerSavegame Link form input, so you can just set it in the GUI instead of the php file.
