@@ -15,6 +15,8 @@ A Web Application for use in combination with the FS25-Sync-Tool.
  - ## **Also for use with Farming Simulator 22 (FS22)!**
  - Easy, lightweight Admin Interface
  - Drag and Drop mod uploads
+ - Import your mods directly from your GPortal server!
+ - Upload new mods also directly your GPortal server.
  - My everlasting gratitude for using my software!
 
 ### [How It Works]
