@@ -7,15 +7,15 @@ var myDropzone = new Dropzone("#dropzone", {
     paramName: "file",
     autoProcessQueue : false,
     acceptedFiles: ".zip",
-    maxFiles: 5,
-    maxFilesize: 2048, // MB
+    maxFiles: 10,
+    maxFilesize: 4096, // MB
     uploadMultiple: true,
     parallelUploads: 100, // use it with uploadMultiple
     createImageThumbnails: true,
     thumbnailWidth: 120,
     thumbnailHeight: 120,
     addRemoveLinks: true,
-    timeout: 180000,
+    timeout: 18000000,
     dictRemoveFileConfirmation: "Are you Sure?", // ask before removing file
     // Language Strings
     dictFileTooBig: "File is to big ({{filesize}}mb). Max allowed file size is {{maxFilesize}}mb",
@@ -38,6 +38,7 @@ myDropzone.on("removedfile", function(file) {
 myDropzone.on("sending", function(file, xhr, formData) {
     //console.log(formData)
     formData.append("dropzone", "1"); // $_POST["dropzone"]
+    formData.append('acp_upload_gportal_enabled', $('#acp_upload_gportal_enabled').val());
     //formData.append('ulFormDate', $('#ulFormDate').val());
 });
 

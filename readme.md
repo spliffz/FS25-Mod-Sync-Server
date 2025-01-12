@@ -95,8 +95,8 @@ docker compose -f fs25-sync-storage-server.yaml down && docker compose -f fs25-s
 nano /opt/FS25-Mod-Sync-Server/custom-uploads.ini```
 ```
 ```
-upload_max_filesize = 2048
-post_max_size = 2048
+upload_max_filesize = 4096
+post_max_size = 4096
 max_file_uploads = 50
 ```
 **It might be that php.ini doesn't exist yet on a default installation.**   
@@ -128,6 +128,11 @@ Sorry bout that.
 
 
 ### [Changelog]
+[v1.1.4]
+- New feature: Upload to GPortal on mod upload. When uploading new mods to the server you can now specify if you also want it to upload to your GPortal Server. Upload Once, Save Twice ;)
+- Increased the max files for uploading to 10.
+- Increased the max file size for uploading file to 4096MB per file.
+
 [v1.1.3]
 - New Feature: Import from GPortal. You can now import all your active mods directly from your GPortal server!
 - Added FS RestAPI CareerSavegame Link form input, so you can just set it in the GUI instead of the php file.
