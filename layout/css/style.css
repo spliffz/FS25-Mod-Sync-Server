@@ -35,6 +35,9 @@ body.modal-open, .modal-open .modal {
     url('weblysleekuisl.ttf') format("truetype")
 }
 
+.dropzone {
+  background: #484848 !important;
+}
 
 .table {
   font-size: 0.8rem;

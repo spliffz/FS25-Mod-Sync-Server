@@ -40,6 +40,8 @@
                         <div class="githubInfo text-end">
                             <a href="https://github.com/spliffz/FS25-Mod-Sync-Server" target="_blank">FS25 Sync Storage Server Github</a><br />
                             <a href="https://github.com/spliffz/FS25-Sync-Tool" target="_blank">FS25 Mod Sync Tool Github</a><br />
+                            <br />
+                            <a href="https://discord.gg/cxs9hcE2X6" target="_blank">Join The FS25 Farm Sim Tools Discord</a><br />
                         </div>
                     </div>
                 </div>

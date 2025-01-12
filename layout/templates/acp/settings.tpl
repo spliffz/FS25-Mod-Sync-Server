@@ -109,19 +109,19 @@
                                             <td><input type="text" id="acp_ftp_careerSavegameLink" name="acp_ftp_careerSavegameLink" class="form-control text-end" value="{$ftpInfo[nr].CSLink}" /></td>
                                         </tr>
                                         <tr>
-                                            <td>Hostname/IP: <img src="{$imgUrl}/Question.png" class="icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="This is your FTP Hostname/IP. You can find this on your GPortal Server"></td>
+                                            <td>Hostname/IP: <img src="{$imgUrl}/Question.png" class="icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="This is your FTP Hostname/IP. You can find this on your GPortal Server."></td>
                                             <td><input type="text" id="acp_ftp_hostname" name="acp_ftp_hostname" class="form-control text-end" value="{$ftpInfo[nr].ftp_host}" /></td>
                                         </tr>
                                         <tr>
-                                            <td>Port: <img src="{$imgUrl}/Question.png" class="icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="This is your FTP Port. You can find this on your GPortal Server"></td>
+                                            <td>Port: <img src="{$imgUrl}/Question.png" class="icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="This is your FTP Port. You can find this on your GPortal Server."></td>
                                             <td><input type="text" id="acp_ftp_port" name="acp_ftp_port" class="form-control text-end" value="{$ftpInfo[nr].ftp_port}" /></td>
                                         </tr>
                                         <tr>
-                                            <td>Username: <img src="{$imgUrl}/Question.png" class="icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="This is your FTP Username. You can find this on your GPortal Server"></td>
+                                            <td>Username: <img src="{$imgUrl}/Question.png" class="icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="This is your FTP Username. You can find this on your GPortal Server."></td>
                                             <td><input type="text" id="acp_ftp_uname" name="acp_ftp_uname" class="form-control text-end" value="{$ftpInfo[nr].ftp_user}" /></td>
                                         </tr>
                                         <tr>
-                                            <td>Password: <img src="{$imgUrl}/Question.png" class="icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="This is your FTP Password. You can find this on your GPortal Server"></td>
+                                            <td>Password: <img src="{$imgUrl}/Question.png" class="icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" data-bs-title="This is your FTP Password. You can find this on your GPortal Server."></td>
                                             <td><input type="text" id="acp_ftp_pword" name="acp_ftp_pword" class="form-control text-end" value="{$ftpInfo[nr].ftp_pass}"/></td>
                                         </tr>
                                         <tr>
