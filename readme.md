@@ -131,6 +131,10 @@ Sorry bout that.
 
 
 ### [Changelog]
+[v1.1.5]
+- added favicon!
+- some garbage collected. unneeded functions are unneeded
+
 [v1.1.4]
 - New feature: Upload to GPortal on mod upload. When uploading new mods to the server you can now specify if you also want it to upload to your GPortal Server. Upload Once, Save Twice ;)
 - Increased the max files for uploading to 10.

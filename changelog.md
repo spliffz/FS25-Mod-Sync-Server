@@ -1,6 +1,6 @@
 [Changelog]
 
-[v1.1.3]
+[v1.1.3 - v1.1.5 (if you haven't updated from 1.1.2)]
 - If you're updating from 1.1.2 you need to do this:
     - Run PHPMyAdmin (or your preferred tool) and do the following:
     - import the following .sql file `INSTALL\IMPORT\update_v113.sql`

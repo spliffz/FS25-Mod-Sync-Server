@@ -98,9 +98,6 @@ $(document).ready(function() {
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     
-    //const md_preview = $('#md_preview');
-    social_about_info();
-
     $('#acp_indexBtn').on('click', function() {
         refreshModList();
     })
