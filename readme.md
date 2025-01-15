@@ -145,6 +145,5 @@ Sorry bout that.
 - Added FS RestAPI CareerSavegame Link form input, so you can just set it in the GUI instead of the php file.
 - Added Standalone GPortal Importer scripts: `importer.php`. Run and set it up like check.php with cronjob.
 
-
 [v1.1.2]
  - added index page (index.tpl/index.php)
