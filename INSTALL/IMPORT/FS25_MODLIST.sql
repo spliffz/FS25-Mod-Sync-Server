@@ -88,7 +88,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `ip`, `sessionid`, `lastLogin`) VALUES
-(1, 'admin', '1de0acf8745573473269bd97ff1baee2a8daa508e0ff937b29154b708bfb2072', '172.20.0.1', '3c1jm7dpmpv9njki7hu1h6g85i', '1736619923');
+(1, 'admin', '057ba03d6c44104863dc7361fe4578965d1887360f90a0895882e58a6248fc86', '172.20.0.1', '', '1736619923');
 
 --
 -- Indexes for dumped tables
