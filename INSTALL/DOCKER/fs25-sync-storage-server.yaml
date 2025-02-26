@@ -3,7 +3,7 @@ services:
     container_name: fs25-php-apache
     build:
       context: .
-      dockerfile: ../fs25_storage_server/Dockerfile
+      dockerfile: ./Dockerfile
     restart: always
     volumes:
       - /opt/FS25-Mod-Sync-Server:/var/www/html
