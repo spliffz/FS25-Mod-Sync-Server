@@ -39,4 +39,4 @@ ALTER TABLE `settings` ADD  `fs_restapi_careerSavegame` varchar(255) NOT NULL DE
 -- Dumping data for table `settings`
 --
 
-UPDATE IGNORE `settings` SET `settings` = 'settings',`modFolderPath` = '',`firstRun` = 0,`installComplete` = 1,`hostname` = 'https://fs25.rotjong.xyz',`sql_host` = 'db',`sql_port` = 3306,`sql_user` = 'MYSQL_USER',`sql_pass` = 'MYSQL_PASS',`sql_db` = 'FS25_MODLIST',`indexerRunning` = 0,`ftp_host` = 'FTP_HOST',`ftp_port` = 21,`ftp_user` = 'FTP_USER',`ftp_pass` = 'FTP_PASS',`ftp_path` = '/profile/mods',`fs_restapi_careerSavegame` = '' WHERE `settings`.`settings` = 'settings';
+UPDATE IGNORE `settings` SET `settings` = 'settings',`modFolderPath` = '',`firstRun` = 0,`installComplete` = 1,`hostname` = '',`sql_host` = 'db',`sql_port` = 3306,`sql_user` = 'MYSQL_USER',`sql_pass` = 'MYSQL_PASS',`sql_db` = 'FS25_MODLIST',`indexerRunning` = 0,`ftp_host` = 'FTP_HOST',`ftp_port` = 21,`ftp_user` = 'FTP_USER',`ftp_pass` = 'FTP_PASS',`ftp_path` = '/profile/mods',`fs_restapi_careerSavegame` = '' WHERE `settings`.`settings` = 'settings';
