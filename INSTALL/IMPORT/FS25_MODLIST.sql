@@ -66,7 +66,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`settings`, `modFolderPath`, `firstRun`, `installComplete`, `hostname`, `sql_host`, `sql_port`, `sql_user`, `sql_pass`, `sql_db`, `indexerRunning`, `ftp_host`, `ftp_port`, `ftp_user`, `ftp_pass`, `ftp_path`, `fs_restapi_careerSavegame`) VALUES
-('settings', '', 0, 1, 'https://fs25.rotjong.xyz', 'db', 3306, 'MYSQL_USER', 'MYSQL_PASS', 'FS25_MODLIST', 0, 'FTP_HOST', 21, 'FTP_USER', 'FTP_PASS', '/profile/mods', '');
+('settings', '', 0, 1, '', 'db', 3306, 'MYSQL_USER', 'MYSQL_PASS', 'FS25_MODLIST', 0, 'FTP_HOST', 21, 'FTP_USER', 'FTP_PASS', '/profile/mods', '');
 
 -- --------------------------------------------------------
 
